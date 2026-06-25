@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papeada · Lunita</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+  <div class="confetti-container" id="confetti"></div>
+  <div class="floating-particles" id="particles"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">🎂 Lunita</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="momentos.html" class="active">Papeada</a></li>
+    </ul>
+  </nav>
+
+  <div class="container" style="display:flex;align-items:center;justify-content:center;min-height:80vh;">
+    <img src="image.webp" alt="Papeada" style="max-width:100%;max-height:80vh;border-radius:24px;border:1px solid rgba(255,255,255,0.08);">
+    <p style="text-align:center;color:rgba(255,255,255,0.5);font-size:1rem;margin-top:1.5rem;max-width:500px;">
+      "mucha ingeniería, mucha carrera universitaria, mucho estudio no sé qué, pero a la hora de la verdad se dejó en claro el más intelectual."
+    </p>
+  </div>
+
+  <script>
+    (function(){
+      var s = document.getElementById('stars');
+      for (var i = 0; i < 120; i++) {
+        var star = document.createElement('div');
+        star.className = 'star';
+        var size = 1 + Math.random() * 3;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+        star.style.animationDelay = (Math.random() * 5) + 's';
+        if (Math.random() > 0.7) star.style.background = 'var(--pink-200)';
+        else if (Math.random() > 0.5) star.style.background = 'var(--gold)';
+        s.appendChild(star);
+      }
+      var c = document.getElementById('confetti');
+      var colors = ['var(--pink-300)','var(--pink-400)','var(--purple-200)','var(--gold)','var(--blue-100)','#ff6b6b','#51cf66','#ffe066'];
+      for (var i = 0; i < 40; i++) {
+        var e = document.createElement('div');
+        e.className = 'confetti';
+        e.style.left = Math.random() * 100 + '%';
+        e.style.width = (5 + Math.random() * 8) + 'px';
+        e.style.height = (5 + Math.random() * 8) + 'px';
+        e.style.background = colors[Math.floor(Math.random() * colors.length)];
+        e.style.setProperty('--fall-dur', (3 + Math.random() * 5) + 's');
+        e.style.setProperty('--fall-delay', (Math.random() * 10) + 's');
+        c.appendChild(e);
+      }
+      var p = document.getElementById('particles');
+      var sym = ['🌸','⭐','💫','🦋','✨','🎀','🌙','💜','❤️','🌟','🎂','🎈'];
+      for (var i = 0; i < 20; i++) {
+        var e = document.createElement('div');
+        e.className = 'particle';
+        e.textContent = sym[Math.floor(Math.random() * sym.length)];
+        e.style.left = Math.random() * 100 + '%';
+        e.style.fontSize = (0.7 + Math.random() * 1.2) + 'rem';
+        e.style.setProperty('--dur', (10 + Math.random() * 20) + 's');
+        e.style.setProperty('--delay', (Math.random() * 15) + 's');
+        p.appendChild(e);
+      }
+      document.getElementById('navToggle').addEventListener('click', function(){
+        document.getElementById('navLinks').classList.toggle('open');
+      });
+    })();
+  </script>
+
+</body>
+</html>

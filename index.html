@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños, Lunita 💖</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+  <div class="confetti-container" id="confetti"></div>
+  <div class="floating-particles" id="particles"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">🎂 Lunita</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="momentos.html">Papeada</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <section class="hero hero-birthday">
+      <span class="hero-badge">🎉 26 de junio 🎉</span>
+      <span class="birthday-cake-emoji">🎂</span>
+      <h1>Feliz Cumpleaños,<br>Lunita</h1>
+      <h2>💖 Para la pocket sage más linda 💖</h2>
+      <div class="hero-divider"></div>
+      <p>Hoy es tu día. Un día tan especial como vos ≤333, y quería darte este detalle bonito. Un recuerdo que tendrás para futuro de mi parte.</p>
+      <div style="margin-top:2rem;">
+        <img src="gon-killua.gif" alt="Gon y Killua" style="max-width:100%;border-radius:16px;border:1px solid rgba(255,255,255,0.08);">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">🎈 HOY LA CUMPLAÑERA CUMPLE</h2>
+      <p class="section-subtitle">LA NUMEROSA CIFRA DE</p>
+      <div style="text-align:center;">
+        <div class="age-display">26</div>
+        <div class="age-label">años</div>
+      </div>
+      <p style="text-align:center;color:rgba(255,255,255,0.6);font-size:1.05rem;margin-top:1.5rem;max-width:500px;margin-left:auto;margin-right:auto;">
+        Ya tas viejita ia, prometo llevarte una silla con ruedas cuando vaya a Uruguay jijiji te quiero 💖
+      </p>
+      <div style="text-align:center;margin-top:2rem;">
+        <img src="li0yrvwtml5g1.jpeg" alt="Imagen de cumpleaños" style="max-width:100%;border-radius:16px;border:1px solid rgba(255,255,255,0.08);">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">💌 Para ti</h2>
+      <div class="message-box">
+        <p>
+          No hablamos mucho, ni tampoco fuimos los más cercanos al inicio; pero en un momento a otro solo bastaron unas palabras para digamos, ganarte parte de mi cariño JAJA. Tienes una linda vibra alrededor tuyo, no es algo que piense ahora, sino que desde antes; bueno.
+          <br><br>
+          Realmente, tragándome un poco el orgullo, solo te molestaba o peleaba para llamarte la atención y así hablar en momentos porque te quería conocer un poco más (aparte que me gusta pelearte a veces porque sí, jaja).
+          <br><br>
+          Estoy feliz de hoy en día poder ser tu amigo y ojalá podamos conocernos un poco más en el paso del tiempo.
+          <br><br>
+          <span style="color:var(--gold);font-weight:600;">
+            Feliz cumpleaños, mi Lunita. Tkm 💖
+          </span>
+        </p>
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <img src="giphy.gif" alt="GIF" style="max-width:100%;border-radius:16px;border:1px solid rgba(255,255,255,0.08);">
+      </div>
+      <p style="text-align:center;color:rgba(255,255,255,0.5);font-size:1.1rem;margin-top:1.5rem;font-weight:600;">
+        vos gato mira
+      </p>
+    </section>
+
+  </div>
+
+  <script>
+    (function(){
+      // Estrellas
+      var s = document.getElementById('stars');
+      for (var i = 0; i < 120; i++) {
+        var star = document.createElement('div');
+        star.className = 'star';
+        var size = 1 + Math.random() * 3;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+        star.style.animationDelay = (Math.random() * 5) + 's';
+        if (Math.random() > 0.7) star.style.background = 'var(--pink-200)';
+        else if (Math.random() > 0.5) star.style.background = 'var(--gold)';
+        s.appendChild(star);
+      }
+
+      // Confeti
+      var c = document.getElementById('confetti');
+      var colors = ['var(--pink-300)','var(--pink-400)','var(--purple-200)','var(--gold)','var(--blue-100)','#ff6b6b','#51cf66','#ffe066'];
+      for (var i = 0; i < 60; i++) {
+        var e = document.createElement('div');
+        e.className = 'confetti';
+        e.style.left = Math.random() * 100 + '%';
+        e.style.width = (5 + Math.random() * 10) + 'px';
+        e.style.height = (5 + Math.random() * 10) + 'px';
+        e.style.background = colors[Math.floor(Math.random() * colors.length)];
+        e.style.setProperty('--fall-dur', (3 + Math.random() * 5) + 's');
+        e.style.setProperty('--fall-delay', (Math.random() * 8) + 's');
+        c.appendChild(e);
+      }
+
+      // Partículas flotantes
+      var p = document.getElementById('particles');
+      var sym = ['🎂','🎈','🎉','🎊','💖','✨','🌟','🎀','🌙','💕','🎁','🦋','🌸','⭐'];
+      for (var i = 0; i < 25; i++) {
+        var e = document.createElement('div');
+        e.className = 'particle';
+        e.textContent = sym[Math.floor(Math.random() * sym.length)];
+        e.style.left = Math.random() * 100 + '%';
+        e.style.fontSize = (0.7 + Math.random() * 1.2) + 'rem';
+        e.style.setProperty('--dur', (10 + Math.random() * 20) + 's');
+        e.style.setProperty('--delay', (Math.random() * 15) + 's');
+        p.appendChild(e);
+      }
+
+      // Countdown al próximo cumpleaños
+      function updateCountdown() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var birthday = new Date(year, 5, 26);
+        if (now > birthday) birthday.setFullYear(year + 1);
+        var diff = birthday - now;
+        document.getElementById('cd-days').textContent = Math.floor(diff / 86400000);
+        document.getElementById('cd-hours').textContent = Math.floor((diff % 86400000) / 3600000);
+        document.getElementById('cd-minutes').textContent = Math.floor((diff % 3600000) / 60000);
+        document.getElementById('cd-seconds').textContent = Math.floor((diff % 60000) / 1000);
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Nav toggle
+      document.getElementById('navToggle').addEventListener('click', function(){
+        document.getElementById('navLinks').classList.toggle('open');
+      });
+    })();
+  </script>
+
+</body>
+</html>
